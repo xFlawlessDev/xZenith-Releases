@@ -59,7 +59,7 @@
 ## 🖼️ Screenshots
 
 <div align="center">
-  <img src="./screenshots/Dashboard.png" alt="Dashboard" width="90%"/>
+  <img src="./screenshots/xZenith-photo-collage.png" alt="Dashboard" width="90%"/>
   <p><em>Dashboard - Real-time system overview</em></p>
   
   <img src="./screenshots/Monitoring-Top.png" alt="Monitoring" width="90%"/>
@@ -97,7 +97,6 @@
 - Performance optimizations (HAGS, Ultimate Performance Plan)
 - Privacy enhancements (Disable Telemetry, Core Isolation)
 - Network optimizations and DNS configuration
-- Windows debloat tools
 - One-click apply/unapply with history tracking
 
 ### 🎮 Additional Features
