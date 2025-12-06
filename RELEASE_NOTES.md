@@ -86,7 +86,6 @@ This update brings significant enhancements to the monitoring system with always
 - Some laptop sensors may show limited data due to manufacturer restrictions
 - OSD may not display on certain multi-monitor setups
 - First launch may take longer while initializing hardware detection
-- xZenith Cast requires ADB and scrcpy to be installed separately
 
 ---
 
