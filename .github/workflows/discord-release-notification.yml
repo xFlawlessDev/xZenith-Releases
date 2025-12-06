@@ -21,39 +21,41 @@ jobs:
       - name: Send Discord Notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+          RELEASE_URL: ${{ steps.release.outputs.release_url }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
         run: |
+          set -e
+
           # Extract version from tag (remove 'v' prefix if present)
-          VERSION="${{ steps.release.outputs.tag }}"
-          VERSION="${VERSION#v}"
+          VERSION="${RELEASE_TAG#v}"
 
-          # Get release body
-          RELEASE_BODY='${{ github.event.release.body }}'
+          # Save release body to file to avoid shell escaping issues
+          echo "$RELEASE_BODY" > release_body.txt
 
-          # Truncate release body if too long (Discord embed description limit is 4096 chars)
-          # We'll use a shorter limit to account for the header text
-          MAX_LENGTH=3500
-          if [ ${#RELEASE_BODY} -gt $MAX_LENGTH ]; then
-            RELEASE_BODY="${RELEASE_BODY:0:$MAX_LENGTH}..."
-            TRUNCATED=true
-          else
-            TRUNCATED=false
+          # Truncate if too long (Discord limit is 4096, we use 3500 to be safe)
+          BODY_LENGTH=$(wc -c < release_body.txt)
+          if [ "$BODY_LENGTH" -gt 3500 ]; then
+            head -c 3400 release_body.txt > release_body_truncated.txt
+            echo "..." >> release_body_truncated.txt
+            echo "" >> release_body_truncated.txt
+            echo "[📖 Read full release notes]($RELEASE_URL)" >> release_body_truncated.txt
+            mv release_body_truncated.txt release_body.txt
           fi
 
-          # Build description with release notes
-          if [ "$TRUNCATED" = true ]; then
-            DESCRIPTION="**New version v$VERSION is now available!**\n\n$RELEASE_BODY\n\n[📖 Read full release notes](${{ steps.release.outputs.release_url }})"
-          else
-            DESCRIPTION="**New version v$VERSION is now available!**\n\n$RELEASE_BODY"
-          fi
+          # Build description with header
+          echo "**New version v$VERSION is now available!**" > description.txt
+          echo "" >> description.txt
+          echo "" >> description.txt
+          cat release_body.txt >> description.txt
 
           # Create JSON payload using jq for proper escaping
           jq -n \
             --arg username "xZenith Releases" \
             --arg avatar "https://raw.githubusercontent.com/xFlawlessDev/xZenith-Releases/main/assets/xZenith-effect.png" \
             --arg title "🚀 xZenith v$VERSION Released!" \
-            --arg description "$DESCRIPTION" \
-            --arg url "${{ steps.release.outputs.release_url }}" \
-            --arg version "$VERSION" \
+            --rawfile description description.txt \
+            --arg url "$RELEASE_URL" \
             --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%S.000Z)" \
             --arg discord_url "https://discord.gg/HKG9GNTesb" \
             '{
@@ -99,15 +101,17 @@ jobs:
             }' > payload.json
 
           # Send to Discord
-          RESPONSE=$(curl -s -w "\n%{http_code}" -H "Content-Type: application/json" -d @payload.json "$DISCORD_WEBHOOK")
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          BODY=$(echo "$RESPONSE" | head -n-1)
+          HTTP_CODE=$(curl -s -o response.txt -w "%{http_code}" \
+            -H "Content-Type: application/json" \
+            -d @payload.json \
+            "$DISCORD_WEBHOOK")
 
           if [ "$HTTP_CODE" -eq 204 ] || [ "$HTTP_CODE" -eq 200 ]; then
             echo "✅ Discord notification sent successfully!"
           else
             echo "❌ Failed to send Discord notification"
             echo "HTTP Status: $HTTP_CODE"
-            echo "Response: $BODY"
+            echo "Response:"
+            cat response.txt
             exit 1
           fi
