@@ -66,7 +66,7 @@
 
 <div align="center">
   <img src="./screenshots/xZenith-photo-collage.jpg" alt="Collage" width="90%"/>
-  <p><em>Dashboard - Real-time system overview</em></p>
+  <p><em>Application overview</em></p>
   
   <img src="./screenshots/Monitoring-Top.png" alt="Monitoring" width="90%"/>
   <p><em>Hardware Monitoring - Detailed temperature and usage graphs</em></p>
