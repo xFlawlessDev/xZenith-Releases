@@ -1,6 +1,6 @@
 # Release Notes
 
-## v1.1.0 (2025-12-06)
+## v1.2.0 (2025-12-06)
 
 ### 🚀 New Features & Improvements
 
@@ -14,14 +14,24 @@ This update brings significant enhancements to the monitoring system with always
 
 - **Always-On Monitoring** - Automatic monitoring starts when opening the page
 - **Continuous CSV Logging** - New "Start/Stop Logging" toggle button for real-time data recording
-- **Comprehensive Data Export** - CSV logs now include 56+ hardware metrics:
+- **Comprehensive Data Export** - CSV logs now include 75+ hardware metrics:
   - CPU: Temperature (main, package, avg, max), Power (package, avg, max, Intel breakdown), Voltage (core, SoC), Load, Frequency, Bus Speed
   - GPU: Temperature (core, hotspot, memory, junction), Power (current, max, PPT, SoC, core), Voltage (core, SoC, memory), Load, Clock, Memory usage, Fan metrics
   - Motherboard: Temperatures (system, VRM, CPU, PCH), Voltages (Vcore, +3.3V, +5V, +12V)
   - Network: Speed, Utilization, Total transferred data
+  - Storage: Temperature (primary, sensor 2), Activity, Throughput (read/write rates), Health (remaining life, spare, percentage used, errors, shutdowns), Lifetime data (GB read/written, power-on hours), Capacity used
 - **Streamlined Chart Exports** - Chart dropdowns now only show PNG export (CSV export moved to logging feature)
 - **Enhanced CPU Data** - Intel power breakdown (cores, graphics, memory, platform), voltage tracking, bus speed
 - **Enhanced GPU Data** - Memory temperature, memory junction temperature, AMD power breakdown (PPT, SoC, Core), expanded voltage and memory metrics
+- **Storage Monitoring** - Comprehensive NVMe/SATA drive monitoring with:
+  - Real-time temperature tracking with dual sensors
+  - Activity monitoring and throughput metrics (read/write rates)
+  - Health status monitoring (remaining life, spare blocks, percentage used)
+  - Lifetime statistics (total data read/written, power-on hours)
+  - Per-drive selection with device metadata (model, interface, media type)
+  - Detailed storage information dialog
+  - CSV logging integration
+  - Automatic capacity formatting (GB/GiB for <1TB drives, TB/TiB for ≥1TB drives)
 - **Drivers Lookup** - New page to view all installed device drivers with:
   - Hardware IDs and driver version information
   - Filter by device category (Network, Display, Audio, USB, etc.)
@@ -35,8 +45,9 @@ This update brings significant enhancements to the monitoring system with always
 #### Dashboard & Monitoring
 
 - Real-time system dashboard with CPU, GPU, RAM, Battery, and Storage overview
-- Live hardware monitoring with performance charts
+- Live hardware monitoring with performance charts for CPU, GPU, and Storage
 - Temperature and power tracking for Intel, AMD, and NVIDIA hardware
+- Storage device selection with health status indicators
 - Customizable update intervals (0.5s - 5s)
 - Min/Max/Current value tracking with history
 
@@ -127,7 +138,7 @@ Your feedback is valuable! Please join our [Discord Server](https://discord.gg/H
 
 ---
 
-**Full Changelog:** [v1.1.0](https://github.com/xFlawlessDev/xZenith/releases/tag/v1.1.0)
+**Full Changelog:** [v1.2.0](https://github.com/xFlawlessDev/xzenith/releases/tag/v1.2.0)
 
 ---
 
