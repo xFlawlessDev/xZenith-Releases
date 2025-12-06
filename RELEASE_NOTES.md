@@ -1,24 +1,47 @@
 # Release Notes
 
-## v1.0.0 (2025-12-04)
+## v1.1.0 (2025-12-06)
 
-### 🎉 Official Release
+### 🚀 New Features & Improvements
 
-We're excited to announce the official release of xZenith! This release includes all core features for hardware monitoring and system optimization.
+This update brings significant enhancements to the monitoring system with always-on monitoring, continuous CSV logging, and comprehensive hardware data coverage.
 
 ---
 
-### ✨ Features
+### ✨ What's New
+
+#### Enhanced Hardware Monitoring
+
+- **Always-On Monitoring** - Automatic monitoring starts when opening the page
+- **Continuous CSV Logging** - New "Start/Stop Logging" toggle button for real-time data recording
+- **Comprehensive Data Export** - CSV logs now include 56+ hardware metrics:
+  - CPU: Temperature (main, package, avg, max), Power (package, avg, max, Intel breakdown), Voltage (core, SoC), Load, Frequency, Bus Speed
+  - GPU: Temperature (core, hotspot, memory, junction), Power (current, max, PPT, SoC, core), Voltage (core, SoC, memory), Load, Clock, Memory usage, Fan metrics
+  - Motherboard: Temperatures (system, VRM, CPU, PCH), Voltages (Vcore, +3.3V, +5V, +12V)
+  - Network: Speed, Utilization, Total transferred data
+- **Streamlined Chart Exports** - Chart dropdowns now only show PNG export (CSV export moved to logging feature)
+- **Enhanced CPU Data** - Intel power breakdown (cores, graphics, memory, platform), voltage tracking, bus speed
+- **Enhanced GPU Data** - Memory temperature, memory junction temperature, AMD power breakdown (PPT, SoC, Core), expanded voltage and memory metrics
+- **Drivers Lookup** - New page to view all installed device drivers with:
+  - Hardware IDs and driver version information
+  - Filter by device category (Network, Display, Audio, USB, etc.)
+  - Show/hide Microsoft drivers toggle
+  - Problem device detection with error codes and descriptions
+  - Search by device name, manufacturer, or hardware ID
+  - Copy device information to clipboard
+  - Search online for driver updates
+  - Responsive design with desktop table and mobile card views
 
 #### Dashboard & Monitoring
+
 - Real-time system dashboard with CPU, GPU, RAM, Battery, and Storage overview
 - Live hardware monitoring with performance charts
 - Temperature and power tracking for Intel, AMD, and NVIDIA hardware
 - Customizable update intervals (0.5s - 5s)
-- Export monitoring data as CSV or PNG charts
 - Min/Max/Current value tracking with history
 
 #### System Tools
+
 - **File System Cleaner** - Remove temporary files and free disk space
 - **Driver Backup & Restore** - Backup and restore system drivers
 - **DNS Changer** - Quick DNS configuration with preset providers
@@ -30,6 +53,7 @@ We're excited to announce the official release of xZenith! This release includes
 - **Process Manager** - Monitor and control running processes with app grouping
 
 #### System Tweaks
+
 - Performance optimizations (HAGS, Ultimate Performance Plan)
 - Privacy enhancements (Telemetry, Core Isolation settings)
 - Network optimizations
@@ -37,6 +61,7 @@ We're excited to announce the official release of xZenith! This release includes
 - Apply/Unapply with history tracking
 
 #### Additional Features
+
 - Global Search Command (Ctrl+K) for quick navigation
 - Discord Rich Presence integration
 - On-Screen Display (OSD) for system events
@@ -73,6 +98,16 @@ We're excited to announce the official release of xZenith! This release includes
 
 ---
 
+### 🔧 Bug Fixes
+
+- Fixed GPU temperature readings for NVIDIA and AMD graphics cards
+- Fixed WiX MSI installer build errors
+- Resolved TypeScript type errors in monitoring component
+- Fixed Clippy warnings in hardware modules
+- Corrected sensor data extraction for comprehensive monitoring
+
+---
+
 ### 🔜 Coming Soon
 
 - Auto-update functionality
@@ -85,6 +120,7 @@ We're excited to announce the official release of xZenith! This release includes
 ### 🙏 Feedback
 
 Your feedback is valuable! Please join our [Discord Server](https://discord.gg/HKG9GNTesb) to:
+
 - Report bugs
 - Suggest features
 - Get support
@@ -92,7 +128,7 @@ Your feedback is valuable! Please join our [Discord Server](https://discord.gg/H
 
 ---
 
-**Full Changelog:** [v1.0.0](https://github.com/xFlawlessDev/xZenith-Releases/releases/tag/v1.0.0)
+**Full Changelog:** [v1.1.0](https://github.com/xFlawlessDev/xZenith-Releases/releases/tag/v1.1.0)
 
 ---
 
