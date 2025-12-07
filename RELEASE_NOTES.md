@@ -1,5 +1,31 @@
 # Release Notes
 
+## v1.3.1 (2025-12-07)
+
+### 🐛 Bug Fixes
+
+#### xZenithCast Improvements
+- **Removed Recording Feature** - Removed unstable recording-to-file functionality that was producing blank files
+- **Simplified Audio Options** - Removed recording UI controls and validation logic
+- **Removed Experimental Features** - Cleaned up unstable advanced options:
+  - Removed H.265 and AV1 video codecs (kept stable H.264)
+  - Removed camera video source option
+  - Removed FLAC and Raw audio codecs
+  - Removed entire Camera Options section
+  - Removed OTG Mode option
+  - Removed AOA modes from keyboard/mouse/gamepad controls
+- **Improved Stability** - Focus on core mirroring functionality with proven stable features
+
+#### First-Run Tour Fixes
+- **Fixed Sidebar Highlighting** - Corrected sidebar navigation item IDs to use dashes instead of spaces
+- **Added New Tour Steps** - Enhanced tour coverage:
+  - Drivers Lookup page with search functionality
+  - Process Manager page with process search
+- **Improved Navigation Flow** - Tools page now shows xZenithCast and xZenithBoost highlights in context
+- **Better Timing** - Added extra wait times to ensure elements are ready before highlighting
+
+---
+
 ## v1.3.0 (2025-12-07)
 
 ### 🚀 New Features & Improvements
@@ -133,6 +159,7 @@ This update introduces auto-update functionality, enhanced user experience with 
 
 ---
 
+
 ### 🙏 Feedback
 
 Your feedback is valuable! Please join our [Discord Server](https://discord.gg/HKG9GNTesb) to:
@@ -144,7 +171,7 @@ Your feedback is valuable! Please join our [Discord Server](https://discord.gg/H
 
 ---
 
-**Full Changelog:** [v1.3.0](https://github.com/xFlawlessDev/xzenith/releases/tag/v1.3.0)
+**Full Changelog:** [v1.3.1](https://github.com/xFlawlessDev/xzenith/releases/tag/v1.3.1)
 
 ---
 
