@@ -114,6 +114,7 @@
 | **System Diagnostics**    | Sleep study, battery reports, memory diagnostics                                                                           |
 | **xZenith Cast**          | Mirror and control Android devices on PC                                                                                   |
 | **xZenith Boost**         | Performance optimization profiles for gaming and productivity                                                              |
+| **xZenith Launcher**      | Unified game library with auto-tweaks, favorites, genres, fullscreen mode                                                  |
 | **Process Manager**       | Monitor and control running processes with app grouping                                                                    |
 
 ### ⚡ System Tweaks
@@ -131,6 +132,46 @@
 - **8 Color Themes** - xZenith, Midnight, Ocean, Forest, Sunset, Aurora, Rose, Cyber
 - **Dynamic Backgrounds** - Gradients, Shooting Stars, DarkVeil
 - **System Restore Points** - Create and manage system checkpoints
+- **xZenith Launcher** - Unified game library with auto-tweaks, fullscreen mode, keyboard navigation
+
+### ⌨️ Keyboard Shortcuts
+
+Navigate xZenith entirely with your keyboard for maximum productivity.
+
+#### Global Shortcuts
+
+| Shortcut    | Action                             |
+| ----------- | ---------------------------------- |
+| `Ctrl+K`    | Open Global Search Command         |
+| `Ctrl+[`    | Toggle sidebar collapse            |
+| `Alt+1-9`   | Navigate directly to sidebar items |
+| `Alt+↑/↓`   | Navigate sidebar with focus        |
+| `Alt+Enter` | Go to focused sidebar item         |
+| `Alt+Home`  | Go to Home page                    |
+
+#### xZenith Launcher (Fullscreen Mode)
+
+| Shortcut          | Action                 |
+| ----------------- | ---------------------- |
+| `F11` or `Ctrl+F` | Toggle fullscreen mode |
+| `←↑↓→`            | Navigate game grid     |
+| `Enter`           | Launch selected game   |
+| `E`               | Edit game settings     |
+| `F`               | Toggle favorite        |
+| `Esc`             | Exit fullscreen        |
+
+#### Game Settings Drawer
+
+| Shortcut   | Action                                |
+| ---------- | ------------------------------------- |
+| `1-3`      | Switch tabs (General/Metadata/Tweaks) |
+| `Ctrl+←/→` | Navigate between tabs                 |
+| `↑/↓`      | Navigate form fields                  |
+| `Ctrl+S`   | Save changes                          |
+| `Esc`      | Close drawer                          |
+| `Alt+B`    | Browse executable                     |
+| `Alt+F`    | Fetch from IGDB                       |
+| `Alt+C`    | Calculate size                        |
 
 ---
 
@@ -140,10 +181,10 @@
 
 [![Download](https://img.shields.io/badge/Download-Latest%20Release-blue?style=for-the-badge&logo=windows)](https://github.com/xFlawlessDev/xzenith/releases/latest)
 
-| File                          | Description                  |
-| ----------------------------- | ---------------------------- |
-| `xZenith_x.x.x_x64-setup.exe` | NSIS Installer (Recommended) |
-| `xZenith_x.x.x_x64_en-US.msi` | MSI Installer                |
+| File                             | Description                  |
+| -------------------------------- | ---------------------------- |
+| `xZenith_x.x.x_x64-setup.exe`    | NSIS Installer (Recommended) |
+| `xZenith_x.x.x_x64-portable.zip` | Portable ZIP (No install)    |
 
 ---
 
@@ -231,6 +272,22 @@ No. xZenith runs entirely offline and does not collect or transmit any user data
 
 - Windows Settings > Apps > xZenith > Uninstall
 - Or run the uninstaller from Start Menu
+</details>
+
+<details>
+<summary><b>Why do I need to disable Core Isolation / Memory Integrity?</b></summary>
+
+xZenith uses PawnIO kernel driver to access hardware sensors (CPU/GPU temperatures, voltages, etc.). Windows Core Isolation (Memory Integrity) blocks unsigned kernel drivers from loading.
+
+**To disable Core Isolation:**
+
+1. Open **Windows Security** > **Device Security**
+2. Click **Core isolation details**
+3. Turn off **Memory integrity**
+4. Restart your PC
+
+> ⚠️ **Note:** Disabling Memory Integrity slightly reduces security but is required for hardware monitoring applications that use kernel drivers. Many hardware monitoring tools (HWiNFO, AIDA64, etc.) have the same requirement.
+
 </details>
 
 ---
